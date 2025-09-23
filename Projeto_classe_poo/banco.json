@@ -1,0 +1,36 @@
+{
+    "professores": [
+        {
+            "nome": "yago",
+            "email": "yafkoas@psdlv.com",
+            "disciplina": null
+        },
+        {
+            "nome": "dsfsfsdf",
+            "email": "yago@gamil.om",
+            "disciplina": null
+        },
+        {
+            "nome": "RICARDO",
+            "email": "yafkoas@psdlv.com",
+            "disciplina": null
+        },
+        {
+            "nome": "yago",
+            "email": "yafkoas@psdlv.com",
+            "disciplina": null
+        },
+        {
+            "nome": "yago",
+            "email": "yafkoas@psdlv.com",
+            "disciplina": null
+        }
+    ],
+    "alunos": [
+        {
+            "nome": "yago",
+            "email": "yafkoas@psdlv.com",
+            "matricula": ""
+        }
+    ]
+}

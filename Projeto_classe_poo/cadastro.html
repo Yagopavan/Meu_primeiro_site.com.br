@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        form {
+            background: #fff;
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 6px;
+            color: #444;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 18px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        select:focus, input:focus {
+            border-color: #4facfe;
+            box-shadow: 0 0 5px rgba(79, 172, 254, 0.5);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #4facfe;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #00c6ff;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form action="salvar.php" method="post">
+        <h2>Cadastro</h2>
+
+        <label for="tipo">Tipo:</label>
+        <select name="tipo" id="tipo" required>
+            <option value="">Selecione</option>
+            <option value="professor">Professor</option>
+            <option value="aluno">Aluno</option>
+        </select>
+
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" required>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" required>
+
+        <div id="campoDisciplina" class="hidden">
+            <label for="Disciplina">Disciplina (para professores):</label>
+            <input type="text" name="Disciplina">
+        </div>
+
+        <div id="campoMatricula" class="hidden">
+            <label for="Matricula">Matrícula (para alunos):</label>
+            <input type="text" name="Matricula">
+        </div>
+
+        <button type="submit">Salvar</button>
+    </form>
+
+    <script>
+        const selectTipo = document.getElementById("tipo");
+        const campoDisciplina = document.getElementById("campoDisciplina");
+        const campoMatricula = document.getElementById("campoMatricula");
+
+        selectTipo.addEventListener("change", function () {
+            if (this.value === "professor") {
+                campoDisciplina.classList.remove("hidden");
+                campoMatricula.classList.add("hidden");
+            } else if (this.value === "aluno") {
+                campoMatricula.classList.remove("hidden");
+                campoDisciplina.classList.add("hidden");
+            } else {
+                campoDisciplina.classList.add("hidden");
+                campoMatricula.classList.add("hidden");
+            }
+        });
+    </script>
+</body>
+</html>
